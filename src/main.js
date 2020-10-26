@@ -32,5 +32,4 @@ try {
 module.exports = {
     createWindow,
     newUser,
-    
 }
