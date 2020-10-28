@@ -15,7 +15,7 @@ window = new BrowserWindow({
 
         
     })
-    
+  //  window.setMenuBarVisibility(false)
     window.loadFile('src/ui/index.html')
 }
 
@@ -26,10 +26,27 @@ try {
 } catch (error) {
     console.log(error)
 }
+}
 
+
+async function appLogin(login){
+    try {
+        const username = login.username
+        
+        
+        const conn = await getConnection()
+        const verif = await conn.query('SELECT username FROM users WHERE username = ?', username, function (error, results, fields){
+            const valor = results
+            
+        })
+       
+    } catch (error) {       
+        console.log("autenticate error ")
+    }
 }
 
 module.exports = {
     createWindow,
     newUser,
+    appLogin,
 }
